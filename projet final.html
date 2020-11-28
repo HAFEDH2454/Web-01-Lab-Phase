@@ -1,0 +1,76 @@
+<html>
+    <head>
+   
+<script>
+    function validateEmail(email) {
+        var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+        return re.test(email);
+    }
+
+    function Verification() {
+
+        var Nom = document.getElementById('idNom').value;
+        var Email = document.getElementById('idEmail').value;
+
+
+        if(Nom==''){
+            alert('Vous devez compléter votre nom !');
+            document.getElementById('idNom').style.backgroundColor="red";
+            document.getElementById('idNom').style.color="#FFF";
+
+
+            return false;
+        }
+        else{
+            document.getElementById('idNom').style.backgroundColor="#9C6";
+        }
+
+
+        if(Email=='' || Email.length<5) {
+            alert('Vous devez compléter votre adresse email');
+            document.getElementById('idEmail').style.backgroundColor="red";
+            document.getElementById('idEmail').style.color="#FFF";
+            return false;
+        }
+
+        else{  
+            document.getElementById('idEmail').style.backgroundColor="#9C6";
+        }
+    }
+</script>
+<style>
+    
+form
+    {
+    font-family:monospace;
+    padding: 50px;
+    background-color:bisque; 
+    }
+
+</style>        
+    </head>
+    <body>  
+    <form  name="monformulaire1" action="" method="post" onSubmit="return Verification()">
+        <img src="download.jpg"><br>
+        <h1>inscription </h1>
+        <label for="idNom">Nom <span class="text-danger">*</span></label>
+        <input type="text" name="nom" id="idNom">
+        <br><br>
+
+        <label for="idPrenom">Prénom</label>
+        <input type="text" name="prenom" id="idPrenom">
+        <br><br>
+
+        <label for="idEmail">Email <span class="text-danger">*</span></label>
+        <input type="text" name="email" id="idEmail">
+        <br><br>
+
+        <label for="idTel">Téléphone</label>
+        <input type="text" name="tel" id="idTel">
+        <br><br>
+
+        <input type="submit" name="valider" value="Envoyer">
+        <input type="reset">
+    </form>
+</html>
+    </body>
